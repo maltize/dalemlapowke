@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dalemlapowke</title>
+  <title>Dałem Łapówkę - dalemlapowke.pl</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
+    <!-- Main hero unit for a primary marketing message or call to action -->
+    <div class="hero-unit">
+      <h1>dalemlapowke.pl</h1>
+    </div>
 
-<%= yield %>
+    <div class="row">
+      <div class="span12">
+        <%= yield %>
+      </div>
+    </div>
 
+    <footer>
+      <p>© dalemlapowke.pl 2013</p>
+    </footer>
+  </div>
 </body>
 </html>
