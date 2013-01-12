@@ -22,19 +22,88 @@
 </head>
 <body>
   <div class="container">
-    <!-- Main hero unit for a primary marketing message or call to action -->
-    <div class="hero-unit">
-      <h1>dalemlapowke.pl</h1>
-    </div>
 
-    <div class="row">
-      <div class="span12">
-        <%= yield %>
+    <div class="row top-section">
+      <div class="span2">
+        [IMG HERE]
+      </div>
+      <div class="span10">
+        <p>Chronimy <a href="#">Twoją prywatność</a> [link do Warunków użytkowania serwisu]</p>
+
+        <form action="#" class="form-search pull-right">
+          <input type="text" class="input-medium search-query" placeholder="Szukana fraza">
+          <button type="submit" class="btn">Szukaj</button>
+        </form>
+
+        <h2>
+          <a href="#">
+            Pokaż rozmiary korupcji,<br/>
+            umieszczając anonimowo swoją historię!
+          </a>
+        </h2>
       </div>
     </div>
 
+    <div class="row menu">
+      <div class="span12">
+        <div class="btn-group">
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+            Dałem łapówkę
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Dodaj swoją historię</a></li>
+            <li><a href="#">Przeczytaj historię</a></li>
+          </ul>
+        </div>
+
+        <div class="btn-group">
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+            Nie dałem łapówki
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Dodaj swoją historię</a></li>
+            <li><a href="#">Przeczytaj historię</a></li>
+          </ul>
+        </div>
+
+        <div class="btn-group">
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+            Przyjąłem łapówkę
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Dodaj swoją historię</a></li>
+            <li><a href="#">Przeczytaj historię</a></li>
+          </ul>
+        </div>
+
+        <div class="btn-group">
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+            Nie przyjęto mojej łapówki
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Dodaj swoją historię</a></li>
+            <li><a href="#">Przeczytaj historię</a></li>
+          </ul>
+        </div>
+
+        <a href="#">Pokaż wszystkie historie</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <%= yield %>
+    </div>
+
     <footer>
-      <p>© dalemlapowke.pl 2013</p>
+      <p>
+        © dalemlapowke.pl 2013 |
+        O serwisie |
+        Warunki użytkowania serwisu
+      </p>
     </footer>
   </div>
 </body>
