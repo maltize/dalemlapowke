@@ -1,0 +1,2 @@
+module BribeHelper
+end

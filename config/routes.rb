@@ -1,4 +1,12 @@
 Dalemlapowke::Application.routes.draw do
+  get "bribe/index"
+
+  match "bribe/:id" => "bribe#show"
+
+  get "bribe/new"
+
+  post "bribe/create"
+
   root :to => 'home#index'
 
   # The priority is based upon order of creation:
