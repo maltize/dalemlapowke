@@ -33,6 +33,8 @@ gem 'unicorn'
 
 group :development do
   gem 'capistrano'
+
+  gem 'annotate'
 end
 
 # To use debugger

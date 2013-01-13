@@ -11,6 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20130113145945) do
+
+  create_table "bribes", :force => true do |t|
+    t.integer  "kind",                                       :null => false
+    t.integer  "area",                                       :null => false
+    t.integer  "service",                                    :null => false
+    t.date     "when",                                       :null => false
+    t.decimal  "amount",       :precision => 9, :scale => 2, :null => false
+    t.string   "subject",                                    :null => false
+    t.text     "description"
+    t.string   "user"
+    t.datetime "validated_at"
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+  end
 
 end
