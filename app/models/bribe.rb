@@ -19,12 +19,14 @@
 class Bribe < ActiveRecord::Base
   attr_accessible :amount, :area, :description, :kind, :service, :subject, :when
 
+  has_many :comments
+
   validates :kind, :area, :service, :when, :amount, :subject, :presence => true
 
   scope :valid, where("validated_at IS NOT NULL")
 
   def valid!
-    update_attribute :validated_at, Time.now
+    update_attribute(:validated_at, Time.now)
   end
 
   def user=(ip)

@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: comments
+#
+#  id           :integer          not null, primary key
+#  bribe_id     :integer          not null
+#  comment      :text             default(""), not null
+#  user         :string(255)
+#  validated_at :datetime
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  bribe_id: 1
+  comment: MyText
+  user: MyString
+
+two:
+  id: 2
+  bribe_id: 1
+  comment: MyText
+  user: MyString
+  validated_at: false

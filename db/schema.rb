@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130113145945) do
+ActiveRecord::Schema.define(:version => 20130114214442) do
 
   create_table "bribes", :force => true do |t|
     t.integer  "kind",                                       :null => false
@@ -26,5 +26,23 @@ ActiveRecord::Schema.define(:version => 20130113145945) do
     t.datetime "created_at",                                 :null => false
     t.datetime "updated_at",                                 :null => false
   end
+
+  add_index "bribes", ["area"], :name => "index_bribes_on_area"
+  add_index "bribes", ["kind"], :name => "index_bribes_on_kind"
+  add_index "bribes", ["service"], :name => "index_bribes_on_service"
+  add_index "bribes", ["subject"], :name => "index_bribes_on_subject"
+  add_index "bribes", ["validated_at"], :name => "index_bribes_on_validated_at"
+
+  create_table "comments", :force => true do |t|
+    t.integer  "bribe_id",     :null => false
+    t.text     "comment",      :null => false
+    t.string   "user"
+    t.datetime "validated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "comments", ["bribe_id"], :name => "index_comments_on_bribe_id"
+  add_index "comments", ["validated_at"], :name => "index_comments_on_validated_at"
 
 end

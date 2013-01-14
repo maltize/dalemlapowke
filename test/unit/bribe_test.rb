@@ -54,4 +54,10 @@ class BribeTest < ActiveSupport::TestCase
       @bribe.user
   end
 
+  test "comments" do
+    @bribe.comments = [comments(:two)]
+
+    assert_equal [comments(:two)], @bribe.comments
+  end
+
 end

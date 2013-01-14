@@ -13,5 +13,11 @@ class CreateBribes < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :bribes, :kind
+    add_index :bribes, :area
+    add_index :bribes, :service
+    add_index :bribes, :subject
+    add_index :bribes, :validated_at
   end
 end
