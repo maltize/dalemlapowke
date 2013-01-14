@@ -1,4 +1,6 @@
 Dalemlapowke::Application.routes.draw do
+  get "search/find"
+
   get "bribe/index"
 
   match "bribe/:id" => "bribe#show"
