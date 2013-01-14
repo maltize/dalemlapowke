@@ -33,4 +33,17 @@ class Bribe < ActiveRecord::Base
     write_attribute(:user, Digest::MD5.hexdigest(ip))
       rescue nil
   end
+
+  def service
+    Service.find( read_attribute(:service) )
+  end
+
+  def area
+    Area.find( read_attribute(:area) )
+  end
+
+  def kind
+    Kind.find( read_attribute(:kind) )
+  end
+
 end

@@ -60,4 +60,16 @@ class BribeTest < ActiveSupport::TestCase
     assert_equal [comments(:two)], @bribe.comments
   end
 
+  test "service should get service" do
+    assert @bribe.service.is_a?(Service)
+  end
+
+  test "area should get area" do
+    assert @bribe.area.is_a?(Area)
+  end
+
+  test "kind should get kind" do
+    assert @bribe.kind.is_a?(Kind)
+  end
+
 end
