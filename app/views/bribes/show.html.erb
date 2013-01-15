@@ -10,6 +10,19 @@
 
   <hr>
 
+  <h1>Dodaj historię</h1>
+
+  <%= form_for(@comment) do |f| %>
+    <%= error_messages_for :comment %>
+
+    <%= f.label :comment, "Treść" %>
+    <%= f.text_area :comment, :class => "input-block-level" %>
+
+    <%= f.submit :value => "Dodaj" %>
+  <% end %>
+
+  <hr>
+
   <% if @bribe.comments.any? %>
     <h4>Komentarze</h4>
 
