@@ -1,7 +1,7 @@
-<h3><%= bribe.subject %></h3>
+<h3><%= link_to bribe.subject, bribe %></h3>
 
-<p><strong>Województwo</strong> <%= bribe.area %></p>
-<p><strong>Usługa</strong> <%= bribe.service %></p>
+<p><strong>Województwo</strong> <%= bribe.area.title %></p>
+<p><strong>Usługa</strong> <%= bribe.service.title %></p>
 <p><strong>Data</strong> <%= bribe.when %></p>
 <p><strong>Kwota</strong> <%= bribe.amount %></p>
 

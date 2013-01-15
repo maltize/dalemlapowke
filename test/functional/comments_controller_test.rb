@@ -25,8 +25,8 @@ class CommentsControllerTest < ActionController::TestCase
 
     post :create, :comment => { :bribe_id => bribes(:two).id }
 
-    assert_response :redirect
-    assert_redirected_to bribes_path(bribes(:two))
+    assert_response :success
+    assert_template 'bribes/show'
   end
 
 end

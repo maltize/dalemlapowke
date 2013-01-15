@@ -12,6 +12,7 @@ class BribesController < ApplicationController
 
   def show
     @bribe = Bribe.valid.find(params[:id])
+    @comments = @bribe.comments.valid
     @comment = @bribe.comments.build
   end
 

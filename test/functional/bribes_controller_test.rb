@@ -11,6 +11,7 @@ class BribesControllerTest < ActionController::TestCase
   test "should get show" do
     bribe = bribes(:two)
     Bribe.expects(:valid).returns(stub(:find => bribe))
+    bribe.stubs(:comments).returns(stub(:valid => [], :build => Comment.new))
 
     get :show, :id => 2
     assert_response :success

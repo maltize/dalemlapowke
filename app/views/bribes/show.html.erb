@@ -1,8 +1,8 @@
 <div class="span12">
   <h3><%= @bribe.subject %></h3>
 
-  <p><strong>Województwo</strong> <%= @bribe.area %></p>
-  <p><strong>Usługa</strong> <%= @bribe.service %></p>
+  <p><strong>Województwo</strong> <%= @bribe.area.title %></p>
+  <p><strong>Usługa</strong> <%= @bribe.service.title %></p>
   <p><strong>Data</strong> <%= @bribe.when %></p>
   <p><strong>Kwota</strong> <%= @bribe.amount %></p>
 
@@ -10,10 +10,12 @@
 
   <hr>
 
-  <h1>Dodaj historię</h1>
+  <h1>Dodaj komentarz</h1>
 
   <%= form_for(@comment) do |f| %>
     <%= error_messages_for :comment %>
+
+    <%= hidden_field :comment, :bribe_id %>
 
     <%= f.label :comment, "Treść" %>
     <%= f.text_area :comment, :class => "input-block-level" %>
@@ -23,10 +25,10 @@
 
   <hr>
 
-  <% if @bribe.comments.any? %>
+  <% if @comments.any? %>
     <h4>Komentarze</h4>
 
-    <% @bribe.comments.each do |comment| %>
+    <% @comments.each do |comment| %>
       <p><strong>Data</strong> <%= comment.created_at %></p>
       <p class="lead"><%= comment.comment %></p>
       <hr>

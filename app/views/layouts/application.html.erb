@@ -23,6 +23,13 @@
 <body>
   <div class="container">
 
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+
     <div class="row top-section">
       <div class="span2">
         [IMG HERE]
