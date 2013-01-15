@@ -11,7 +11,8 @@ class BribesController < ApplicationController
   end
 
   def show
-    @bribe = Bribe.find(params[:id])
+    @bribe = Bribe.valid.find(params[:id])
+    @comment = @bribe.comments.build
   end
 
   def new
@@ -24,7 +25,7 @@ class BribesController < ApplicationController
     @bribe.user = request.remote_ip
 
     if @bribe.save
-      redirect_to(root_path, :notice => "Twoja historia została zapisana. Po zatwierdzeniu przez administratora pojawi się na liście.")
+      redirect_to(root_path, :notice => "Twoja historia została zapisana. Po zatwierdzeniu przez administratora pojawi się na stronie.")
     else
       render :action => "new"
     end

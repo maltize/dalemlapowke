@@ -19,7 +19,7 @@
 class Bribe < ActiveRecord::Base
   attr_accessible :amount, :area, :description, :kind, :service, :subject, :when
 
-  has_many :comments
+  has_many :comments, :dependent => :destroy
 
   validates :kind, :area, :service, :when, :amount, :subject, :presence => true
 

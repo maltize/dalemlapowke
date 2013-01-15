@@ -1,7 +1,9 @@
 Dalemlapowke::Application.routes.draw do
-  get "search/find"
 
   resources :bribes, :only => [:index, :new, :show, :create]
+  resources :comments, :only => [:create]
+
+  get "search/find"
 
   root :to => 'home#index'
 

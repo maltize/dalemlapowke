@@ -9,12 +9,13 @@ class BribesControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
-    bribe = bribes(:one)
-    Bribe.expects(:find).returns(bribe)
+    bribe = bribes(:two)
+    Bribe.expects(:valid).returns(stub(:find => bribe))
 
-    get :show, :id => 1
+    get :show, :id => 2
     assert_response :success
     assert_not_nil assigns(:bribe)
+    assert_not_nil assigns(:comment)
   end
 
   test "should get new" do
@@ -32,7 +33,7 @@ class BribesControllerTest < ActionController::TestCase
     assert_redirected_to root_path
   end
 
-  test "should get create and fail" do
+  test "should post create and fail" do
     Bribe.any_instance.expects(:save).returns(false)
 
     post :create, :bribe => {}
