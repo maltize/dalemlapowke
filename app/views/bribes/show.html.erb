@@ -14,8 +14,8 @@
     <h4>Komentarze</h4>
 
     <% @bribe.comments.each do |comment| %>
-      <p><strong>Data</strong> <%= comment.when %></p>
-      <p class="lead"><%= comment.description %></p>
+      <p><strong>Data</strong> <%= comment.created_at %></p>
+      <p class="lead"><%= comment.comment %></p>
       <hr>
     <% end %>
   <% end %>
