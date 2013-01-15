@@ -1,5 +1,5 @@
 # encoding: UTF-8
-class BribeController < ApplicationController
+class BribesController < ApplicationController
 
   PER_PAGE = 10
 

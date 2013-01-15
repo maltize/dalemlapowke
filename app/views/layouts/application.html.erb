@@ -28,10 +28,10 @@
         [IMG HERE]
       </div>
       <div class="span10">
-        <form action="#" class="form-search pull-right">
-          <input type="text" class="input-medium search-query" placeholder="Szukana fraza">
-          <button type="submit" class="btn">Szukaj</button>
-        </form>
+        <%= form_tag(search_find_path, :class => 'form-search pull-right') do |f| %>
+          <%= text_field_tag :query, nil, :placeholder => "Szukana fraza", :class => "input-medium search-query" %>
+          <%= submit_tag "Szukaj", :class => "btn" %>
+        <% end %>
 
         <p>Chronimy <a href="#">Twoją prywatność</a> [link do Warunków użytkowania serwisu]</p>
 

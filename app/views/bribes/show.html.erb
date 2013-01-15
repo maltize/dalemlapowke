@@ -1,0 +1,22 @@
+<div class="span12">
+  <h3><%= @bribe.subject %></h3>
+
+  <p><strong>Województwo</strong> <%= @bribe.area %></p>
+  <p><strong>Usługa</strong> <%= @bribe.service %></p>
+  <p><strong>Data</strong> <%= @bribe.when %></p>
+  <p><strong>Kwota</strong> <%= @bribe.amount %></p>
+
+  <p class="lead"><%= @bribe.description %></p>
+
+  <hr>
+
+  <% if @bribe.comments.any? %>
+    <h4>Komentarze</h4>
+
+    <% @bribe.comments.each do |comment| %>
+      <p><strong>Data</strong> <%= comment.when %></p>
+      <p class="lead"><%= comment.description %></p>
+      <hr>
+    <% end %>
+  <% end %>
+</div>

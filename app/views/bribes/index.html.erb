@@ -1,0 +1,7 @@
+<div class="span12">
+  <h1>Historie</h1>
+
+  <%= render :partial => 'bribe', :collection => @bribes %>
+
+  <%= will_paginate @bribes %>
+</div>

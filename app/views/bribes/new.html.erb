@@ -1,0 +1,32 @@
+<div class="span12">
+
+  <h1>Dodaj historię</h1>
+
+  <%= form_for(@bribe) do |f| %>
+    <%= error_messages_for :product %>
+
+    <%= f.label :kind, "Rodzaj" %>
+    <%= f.select :kind, Kind.all.map{|k| [k.title, k.id] }, :class => "input-block-level" %>
+
+    <%= f.label :area, "Województwo" %>
+    <%= f.select :area, Area.all.map{|a| [a.title, a.id] }, :class => "input-block-level" %>
+
+    <%= f.label :service, "Urząd / Usługa" %>
+    <%= f.select :service, Service.all.map{|s| [s.title, s.id] }, :class => "input-block-level" %>
+
+    <%= f.label :when, "Kiedy" %>
+    <%= f.text_field :when, :class => "input-block-level" %>
+
+    <%= f.label :amount, "Kwota" %>
+    <%= f.text_field :amount, :class => "input-block-level" %>
+
+    <%= f.label :subject, "Temat" %>
+    <%= f.text_field :subject, :class => "input-block-level" %>
+
+    <%= f.label :description, "Opis" %>
+    <%= f.text_area :description, :class => "input-block-level" %>
+
+    <%= f.submit :value => "Dodaj" %>
+  <% end %>
+
+</div>

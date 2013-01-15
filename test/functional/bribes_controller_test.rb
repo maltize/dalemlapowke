@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class BribeControllerTest < ActionController::TestCase
+class BribesControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
 
