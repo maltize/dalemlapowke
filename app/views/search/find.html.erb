@@ -1,2 +1,7 @@
-<h1>Search#find</h1>
-<p>Find me in app/views/search/find.html.erb</p>
+<div class="span12">
+  <h1>Wyniki wyszukiwania : <%= @bribes.total_entries %></h1>
+
+  <%= render :partial => 'bribes/bribe', :collection => @bribes %>
+
+  <%= will_paginate @bribes, :params => { :query => params[:query] } %>
+</div>

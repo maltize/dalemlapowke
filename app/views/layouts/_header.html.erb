@@ -10,12 +10,12 @@
     [IMG HERE]
   </div>
   <div class="span10">
-    <%= form_tag(search_find_path, :class => 'form-search pull-right') do %>
-      <%= text_field_tag :query, nil, :placeholder => "Szukana fraza", :class => "input-medium search-query" %>
+    <%= form_tag(search_path, :method => :get, :class => 'form-search pull-right') do %>
+      <%= text_field_tag :query, params[:query], :placeholder => "Szukana fraza", :class => "input-medium search-query" %>
       <%= submit_tag "Szukaj", :class => "btn" %>
     <% end %>
 
-    <p>Chronimy <a href="#">Twoją prywatność</a> [link do Warunków użytkowania serwisu]</p>
+    <p>Chronimy <%= link_to 'Twoją prywatność', terms_path %></p>
 
     <h2>
       <%= link_to "Pokaż rozmiary korupcji,<br/>umieszczając anonimowo swoją historię!".html_safe, new_bribe_path %>

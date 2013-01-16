@@ -3,7 +3,11 @@ Dalemlapowke::Application.routes.draw do
   resources :bribes, :only => [:index, :new, :show, :create]
   resources :comments, :only => [:create]
 
-  get "search/find"
+  match 'search' => 'search#find'
+
+  match 'about' => 'static#about'
+  match 'terms' => 'static#terms'
+  match 'contact' => 'static#contact'
 
   root :to => 'home#index'
 
