@@ -3,5 +3,5 @@
 
   <%= render :partial => 'bribes/bribe', :collection => @bribes %>
 
-  <%= will_paginate @bribes, :params => { :query => params[:query] } %>
+  <%= will_paginate @bribes %>
 </div>
