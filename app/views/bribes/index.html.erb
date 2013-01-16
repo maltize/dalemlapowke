@@ -1,6 +1,10 @@
 <div class="span12">
   <h1>Historie</h1>
 
+  <%= form_tag(bribes_path, :method => :get, :id => 'kind_filter') do %>
+    <%= select_tag :kind, options_for_select([["Wszystkie", 0]] + Kind.all.map{|k| [k.title, k.id] }, @kind.try(:id)), :class => "input-block-level" %>
+  <% end %>
+
   <%= render :partial => 'bribe', :collection => @bribes %>
 
   <%= will_paginate @bribes %>

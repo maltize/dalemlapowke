@@ -1,10 +1,14 @@
 # encoding: UTF-8
 class BribesController < ApplicationController
 
+  before_filter :load_kind
+
   PER_PAGE = 10
 
   def index
-    @bribes = Bribe.valid.paginate(
+    @bribes = Bribe.valid
+    @bribes = @bribes.where(:kind => @kind.id) if @kind
+    @bribes = @bribes.paginate(
       :page     => params[:page],
       :per_page => PER_PAGE
     )
@@ -31,4 +35,11 @@ class BribesController < ApplicationController
       render :action => "new"
     end
   end
+
+private
+
+  def load_kind
+    @kind = Kind.find params[:kind]
+  end
+
 end

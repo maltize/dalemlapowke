@@ -8,7 +8,8 @@ class StaticRecord
   end
 
   def self.find(id)
-    list[id] ? new(id, list[id]) : nil
+    _id = id.to_i
+    list[_id] ? new(_id, list[_id]) : nil
   end
 
   def self.all

@@ -10,7 +10,7 @@
     [IMG HERE]
   </div>
   <div class="span10">
-    <%= form_tag(search_find_path, :class => 'form-search pull-right') do |f| %>
+    <%= form_tag(search_find_path, :class => 'form-search pull-right') do %>
       <%= text_field_tag :query, nil, :placeholder => "Szukana fraza", :class => "input-medium search-query" %>
       <%= submit_tag "Szukaj", :class => "btn" %>
     <% end %>
