@@ -1,0 +1,24 @@
+<% if notice %>
+  <p class="notice"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert"><%= alert %></p>
+<% end %>
+
+<div class="row header-section">
+  <div class="span2">
+    [IMG HERE]
+  </div>
+  <div class="span10">
+    <%= form_tag(search_find_path, :class => 'form-search pull-right') do |f| %>
+      <%= text_field_tag :query, nil, :placeholder => "Szukana fraza", :class => "input-medium search-query" %>
+      <%= submit_tag "Szukaj", :class => "btn" %>
+    <% end %>
+
+    <p>Chronimy <a href="#">Twoją prywatność</a> [link do Warunków użytkowania serwisu]</p>
+
+    <h2>
+      <%= link_to "Pokaż rozmiary korupcji,<br/>umieszczając anonimowo swoją historię!".html_safe, new_bribe_path %>
+    </h2>
+  </div>
+</div>

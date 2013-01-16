@@ -3,10 +3,10 @@
   <h1>Dodaj historię</h1>
 
   <%= form_for(@bribe) do |f| %>
-    <%= error_messages_for :product %>
+    <%= error_messages_for :bribe %>
 
     <%= f.label :kind, "Rodzaj" %>
-    <%= f.select :kind, Kind.all.map{|k| [k.title, k.id] }, :class => "input-block-level" %>
+    <%= f.select :kind, Kind.all.map{|k| [k.title, k.id] }, :selected => @bribe.kind.try(:id) || params[:kind], :class => "input-block-level" %>
 
     <%= f.label :area, "Województwo" %>
     <%= f.select :area, Area.all.map{|a| [a.title, a.id] }, :class => "input-block-level" %>

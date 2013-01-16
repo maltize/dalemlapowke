@@ -1,0 +1,49 @@
+<div class="row menu-section">
+  <div class="span12">
+    <div class="btn-group">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        Dałem łapówkę
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "Dodaj swoją historię", new_bribe_path(:kind => 1) %></li>
+        <li><%= link_to "Przeczytaj historie", bribes_path(:kind => 1) %></li>
+      </ul>
+    </div>
+
+    <div class="btn-group">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        Nie dałem łapówki
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "Dodaj swoją historię", new_bribe_path(:kind => 2) %></li>
+        <li><%= link_to "Przeczytaj historie", bribes_path(:kind => 2) %></li>
+      </ul>
+    </div>
+
+    <div class="btn-group">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        Przyjąłem łapówkę
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "Dodaj swoją historię", new_bribe_path(:kind => 3) %></li>
+        <li><%= link_to "Przeczytaj historie", bribes_path(:kind => 3) %></li>
+      </ul>
+    </div>
+
+    <div class="btn-group">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        Nie przyjęto mojej łapówki
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "Dodaj swoją historię", new_bribe_path(:kind => 4) %></li>
+        <li><%= link_to "Przeczytaj historie", bribes_path(:kind => 4) %></li>
+      </ul>
+    </div>
+
+    <%= link_to "Pokaż wszystkie historie", bribes_path %>
+  </div>
+</div>
