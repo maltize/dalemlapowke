@@ -1,15 +1,37 @@
 <div class="span8">
-  <p class="lead">1500 historii korupcji - 5 000 000 zł łapówek.</p>
+  <h3>1500 historii korupcji - 5 000 000 zł łapówek.</h3>
 
   <p class="lead">Spróbójmy razem coś zmienić. Może istnieć Państwo bez korupcji. Niech Twoja historia uświadamia i pomaga innym, aby nie zrobili błędu. Opowiedz gdzie, jak i kiedy dałeś łapówkę.</p>
 
-  <p>[4 zakładki]</p>
-  <p>[8-10 ostatnich historii z linkami "czytaj więcej"]</p>
-  <p>[link "przeczytaj więcej historii"]</p>
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#home" data-toggle="tab">Dałem łapówkę</a></li>
+    <li><a href="#profile" data-toggle="tab">Nie dałem łapówki</a></li>
+    <li><a href="#messages" data-toggle="tab">Przyjąłem łapówkę</a></li>
+    <li><a href="#settings" data-toggle="tab">Nie przyjęto mojej łapówki</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane active" id="home">
+      <%= render :partial => 'bribes/bribe', :collection => @bribes1 %>
+      <p><%= link_to 'przeczytaj więcej historii', bribes_path(:kind => 1) %></p>
+    </div>
+    <div class="tab-pane" id="profile">
+      <%= render :partial => 'bribes/bribe', :collection => @bribes2 %>
+      <p><%= link_to 'przeczytaj więcej historii', bribes_path(:kind => 2) %></p>
+    </div>
+    <div class="tab-pane" id="messages">
+      <%= render :partial => 'bribes/bribe', :collection => @bribes3 %>
+      <p><%= link_to 'przeczytaj więcej historii', bribes_path(:kind => 3) %></p>
+    </div>
+    <div class="tab-pane" id="settings">
+      <%= render :partial => 'bribes/bribe', :collection => @bribes4 %>
+      <p><%= link_to 'przeczytaj więcej historii', bribes_path(:kind => 4) %></p>
+    </div>
+  </div>
 </div>
 
 <div class="span4">
-  <p class="lead">Statystyki</p>
+  <h3>Statystyki</h3>
 
   <p>[korupcja na usługę]</p>
   <p>[wykres kołowy i link do większej wersji]</p>
