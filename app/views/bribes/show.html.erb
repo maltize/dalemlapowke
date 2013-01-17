@@ -1,37 +1,15 @@
 <div class="span12">
-  <h3><%= @bribe.subject %></h3>
-
-  <p><strong>Województwo</strong> <%= @bribe.area.title %></p>
-  <p><strong>Usługa</strong> <%= @bribe.service.title %></p>
-  <p><strong>Data</strong> <%= @bribe.when %></p>
-  <p><strong>Kwota</strong> <%= @bribe.amount %></p>
-
-  <p class="lead"><%= @bribe.description %></p>
-
-  <hr>
+  <%= render :partial => 'bribes/bribe', :object => @bribe %>
 
   <h1>Dodaj komentarz</h1>
 
-  <%= form_for(@comment) do |f| %>
-    <%= error_messages_for :comment %>
-
-    <%= hidden_field :comment, :bribe_id %>
-
-    <%= f.label :comment, "Treść" %>
-    <%= f.text_area :comment, :class => "input-block-level" %>
-
-    <%= f.submit :value => "Dodaj" %>
-  <% end %>
+  <%= render :partial => 'comments/form', :locals => { :comment => @comment } %>
 
   <hr>
 
   <% if @comments.any? %>
     <h4>Komentarze</h4>
 
-    <% @comments.each do |comment| %>
-      <p><strong>Data</strong> <%= comment.created_at %></p>
-      <p class="lead"><%= comment.comment %></p>
-      <hr>
-    <% end %>
+    <%= render :partial => 'comments/comment', :collection => @comments %>
   <% end %>
 </div>

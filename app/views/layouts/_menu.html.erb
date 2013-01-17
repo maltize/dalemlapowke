@@ -1,49 +1,25 @@
 <div class="row menu-section">
-  <div class="span12">
+  <div class="span3">
     <div class="btn-group">
       <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-        Dałem łapówkę
-        <span class="caret"></span>
+        Dodaj swoją historię
       </a>
       <ul class="dropdown-menu">
-        <li><%= link_to "Dodaj swoją historię", new_bribe_path(:kind => 1) %></li>
-        <li><%= link_to "Przeczytaj historie", bribes_path(:kind => 1) %></li>
+        <li><%= link_to "Dałem łapówkę", new_bribe_path(:kind => 1) %></li>
+        <li><%= link_to "Nie dałem łapówki", new_bribe_path(:kind => 2) %></li>
+        <li><%= link_to "Przyjąłem łapówkę", new_bribe_path(:kind => 3) %></li>
+        <li><%= link_to "Nie przyjęto mojej łapówki", new_bribe_path(:kind => 4) %></li>
       </ul>
     </div>
+  </div>
 
-    <div class="btn-group">
-      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-        Nie dałem łapówki
-        <span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu">
-        <li><%= link_to "Dodaj swoją historię", new_bribe_path(:kind => 2) %></li>
-        <li><%= link_to "Przeczytaj historie", bribes_path(:kind => 2) %></li>
-      </ul>
-    </div>
+  <div class="span6">
+    <strong><%= link_to "Pokaż wszystkie historie", bribes_path %></strong>
+  </div>
 
-    <div class="btn-group">
-      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-        Przyjąłem łapówkę
-        <span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu">
-        <li><%= link_to "Dodaj swoją historię", new_bribe_path(:kind => 3) %></li>
-        <li><%= link_to "Przeczytaj historie", bribes_path(:kind => 3) %></li>
-      </ul>
-    </div>
-
-    <div class="btn-group">
-      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-        Nie przyjęto mojej łapówki
-        <span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu">
-        <li><%= link_to "Dodaj swoją historię", new_bribe_path(:kind => 4) %></li>
-        <li><%= link_to "Przeczytaj historie", bribes_path(:kind => 4) %></li>
-      </ul>
-    </div>
-
-    <%= link_to "Pokaż wszystkie historie", bribes_path %>
+  <div class="span3">
+    <%= form_tag(search_path, :method => :get, :class => 'form-search pull-right') do %>
+      <%= text_field_tag :query, params[:query], :placeholder => "Szukana fraza", :class => "input-medium search-query" %>
+    <% end %>
   </div>
 </div>

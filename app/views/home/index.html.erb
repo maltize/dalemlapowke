@@ -1,41 +1,79 @@
-<div class="span8">
-  <h3>1500 historii korupcji - 5 000 000 zł łapówek.</h3>
+<div class="span6">
+  <div class="well">
+    <h4>1500 historii korupcji to 5 000 000 zł łapówek</h4>
 
-  <p class="lead">Spróbójmy razem coś zmienić. Może istnieć Państwo bez korupcji. Niech Twoja historia uświadamia i pomaga innym, aby nie zrobili błędu. Opowiedz gdzie, jak i kiedy dałeś łapówkę.</p>
-
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#home" data-toggle="tab">Dałem łapówkę</a></li>
-    <li><a href="#profile" data-toggle="tab">Nie dałem łapówki</a></li>
-    <li><a href="#messages" data-toggle="tab">Przyjąłem łapówkę</a></li>
-    <li><a href="#settings" data-toggle="tab">Nie przyjęto mojej łapówki</a></li>
-  </ul>
-
-  <div class="tab-content">
-    <div class="tab-pane active" id="home">
-      <%= render :partial => 'bribes/bribe', :collection => @bribes1 %>
-      <p><%= link_to 'przeczytaj więcej historii', bribes_path(:kind => 1) %></p>
-    </div>
-    <div class="tab-pane" id="profile">
-      <%= render :partial => 'bribes/bribe', :collection => @bribes2 %>
-      <p><%= link_to 'przeczytaj więcej historii', bribes_path(:kind => 2) %></p>
-    </div>
-    <div class="tab-pane" id="messages">
-      <%= render :partial => 'bribes/bribe', :collection => @bribes3 %>
-      <p><%= link_to 'przeczytaj więcej historii', bribes_path(:kind => 3) %></p>
-    </div>
-    <div class="tab-pane" id="settings">
-      <%= render :partial => 'bribes/bribe', :collection => @bribes4 %>
-      <p><%= link_to 'przeczytaj więcej historii', bribes_path(:kind => 4) %></p>
-    </div>
+    <p class="lead">Spróbójmy razem coś zmienić. Może istnieć Państwo bez korupcji. Niech Twoja historia uświadamia i pomaga innym, aby nie zrobili błędu. Opowiedz gdzie, jak i kiedy dałeś łapówkę.</p>
   </div>
+
+  <h3>Ostatnie historie</h3>
+
+  <%= render :partial => 'bribes/bribe', :collection => @bribes %>
+
+  <p><%= link_to 'Przeczytaj więcej histori', bribes_path %></p>
 </div>
 
-<div class="span4">
-  <h3>Statystyki</h3>
+<div class="span6">
+  <h3>Korupcja na usługę</h3>
+  <div id="chart_u_div"></div>
 
-  <p>[korupcja na usługę]</p>
-  <p>[wykres kołowy i link do większej wersji]</p>
+  <h3>Korupcja na województwo</h3>
+  <div id="chart_w_div"></div>
 
-  <p>[ostatnie komentarze]</p>
-  <p>[8-10 ostatnich komentarzy z linkami "pokaż"]</p>
+  <h3>Ostatnie komentarze</h3>
+
+  <%= render :partial => 'comments/comment', :collection => @comments %>
 </div>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<script type="text/javascript">
+  google.load("visualization", "1", {packages:["corechart"]});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Urząd / Usługa', 'Liczba historii'],
+      ['Urząd Miejski / Urząd Gminy / Starostwo Powiatowe',     11],
+      ['Ministerstwo Administracji i Cyfryzacji',      2],
+      ['Policja',  2],
+      ['ZUS', 2],
+      ['Szpital',    7]
+    ]);
+
+    var options = {
+      // title: 'Korupcja na usługę'
+      legend: { position: 'none' },
+      chartArea: { width: 300, height: 300 },
+      width: 460,
+      height: 320
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('chart_u_div'));
+    chart.draw(data, options);
+  }
+</script>
+
+<script type="text/javascript">
+  google.load("visualization", "1", {packages:["corechart"]});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Urząd / Usługa', 'Liczba historii'],
+      ['Urząd Miejski / Urząd Gminy / Starostwo Powiatowe',     11],
+      ['Ministerstwo Administracji i Cyfryzacji',      2],
+      ['Policja',  2],
+      ['ZUS', 2],
+      ['Szpital',    7]
+    ]);
+
+    var options = {
+      // title: 'Korupcja na usługę'
+      legend: { position: 'none' },
+      chartArea: { width: 300, height: 300 },
+      width: 460,
+      height: 320
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('chart_w_div'));
+    chart.draw(data, options);
+  }
+</script>
