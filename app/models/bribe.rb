@@ -6,8 +6,8 @@
 #  kind         :integer          not null
 #  area         :integer          not null
 #  service      :integer          not null
-#  year         :string             not null
-#  month        :string             not null
+#  year         :string           not null
+#  month        :string           not null
 #  amount       :decimal(9, 2)    not null
 #  subject      :string(255)      not null
 #  description  :text
@@ -24,11 +24,9 @@ class Bribe < ActiveRecord::Base
 
   validates :kind, :area, :service, :year, :month, :amount, :subject, :presence => true
 
-  validates :month, :format => { :with => /\d{1,2}/,
-                                 :message => "Prosze wprowadzic miesiac w formacie MM" }
+  validates :month, :format => { :with => /\d{1,2}/ }
 
-  validates :year, :format => { :with => /\d{4}/,
-                                :message => "Prosze wprowadzic rok w formacie RRRR" }
+  validates :year, :format => { :with => /\d{4}/ }
 
   scope :valid, where("validated_at IS NOT NULL")
 

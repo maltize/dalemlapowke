@@ -1,0 +1,46 @@
+pl:
+  will_paginate:
+    previous_label: "&#8592; Poprzednia"
+    next_label: "Następna &#8594;"
+    page_gap: "&hellip;"
+
+  activerecord:
+    models:
+      bribe: "Łapówka"
+      comment: "Komentarz"
+      area: "Województwo"
+      kind: "Rodzaj"
+      service: "Urząd / Usługa"
+    attributes:
+      bribe:
+        kind: "Rodzaj"
+        area: "Województwo"
+        service: "Urząd / Usługa"
+        year: "Rok"
+        month: "Miesiąc"
+        amount: "Kwota"
+        subject: "Tytuł"
+        description: "Treść"
+        created_at: "Data dodania"
+      comment:
+        bribe_id: "Łapówka"
+        comment: "Treść"
+        created_at: "Data dodania"
+    errors:
+      models:
+        bribe:
+          attributes:
+            year:
+              blank: "nie może być pusty"
+              invalid: "musi być w formacie RRRR"
+            month:
+              blank: "nie może być pusty"
+              invalid: "musi być w formacie MM"
+            amount:
+              blank: "nie może być pusta"
+            subject:
+              blank: "nie może być pusty"
+        comment:
+          attributes:
+            comment:
+              blank: "nie może być pusta"

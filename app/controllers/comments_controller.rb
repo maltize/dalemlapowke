@@ -7,7 +7,8 @@ class CommentsController < ApplicationController
     @comment.user = request.remote_ip
     @bribe = @comment.bribe
 
-    redirect_to(bribes_path) and return unless @bribe.validated_at?
+    redirect_to(bribes_path) and return if
+      !@bribe || !@bribe.validated_at?
 
     if @comment.save
       redirect_to(bribes_path(@comment.bribe), :notice => "Twój komentarz został zapisany. Po zatwierdzeniu przez administratora pojawi się na stronie.")

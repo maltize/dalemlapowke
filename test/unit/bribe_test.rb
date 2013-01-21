@@ -6,7 +6,8 @@
 #  kind         :integer          not null
 #  area         :integer          not null
 #  service      :integer          not null
-#  when         :date             not null
+#  year         :string           not null
+#  month        :string           not null
 #  amount       :decimal(9, 2)    not null
 #  subject      :string(255)      not null
 #  description  :text
