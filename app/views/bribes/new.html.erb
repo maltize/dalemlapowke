@@ -14,8 +14,10 @@
     <%= f.label :service, "Urząd / Usługa" %>
     <%= f.select :service, Service.all.map{|s| [s.title, s.id] }, :class => "input-block-level" %>
 
-    <%= f.label :when, "Kiedy" %>
-    <%= f.text_field :when, :class => "input-block-level" %>
+    <%= f.label :year, "Kiedy" %>
+    <%= f.text_field :year, :class => "input-block-level", :placeholder => "RRRR" %>
+
+    <%= f.text_field :month, :class => "input-block-level", :placeholder => "MM" %>
 
     <%= f.label :amount, "Kwota" %>
     <%= f.text_field :amount, :class => "input-block-level" %>

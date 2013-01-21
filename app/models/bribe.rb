@@ -6,7 +6,8 @@
 #  kind         :integer          not null
 #  area         :integer          not null
 #  service      :integer          not null
-#  when         :date             not null
+#  year         :string             not null
+#  month        :string             not null
 #  amount       :decimal(9, 2)    not null
 #  subject      :string(255)      not null
 #  description  :text
@@ -17,11 +18,11 @@
 #
 
 class Bribe < ActiveRecord::Base
-  attr_accessible :amount, :area, :description, :kind, :service, :subject, :when
+  attr_accessible :amount, :area, :description, :kind, :service, :subject, :year, :month
 
   has_many :comments, :dependent => :destroy
 
-  validates :kind, :area, :service, :when, :amount, :subject, :presence => true
+  validates :kind, :area, :service, :year, :month, :amount, :subject, :presence => true
 
   scope :valid, where("validated_at IS NOT NULL")
 

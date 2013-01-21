@@ -4,7 +4,8 @@ class CreateBribes < ActiveRecord::Migration
       t.integer :kind, :null => false
       t.integer :area, :null => false
       t.integer :service, :null => false
-      t.date :when, :null => false
+      t.string :year, :null => false
+      t.string :month, :null => false
       t.decimal :amount, :precision => 9, :scale => 2, :null => false
       t.string :subject, :null => false
       t.text :description
