@@ -24,6 +24,12 @@ class Bribe < ActiveRecord::Base
 
   validates :kind, :area, :service, :year, :month, :amount, :subject, :presence => true
 
+  validates :month, :format => { :with => /\d{1,2}/,
+                                 :message => "Prosze wprowadzic miesiac w formacie MM" }
+
+  validates :year, :format => { :with => /\d{4}/,
+                                :message => "Prosze wprowadzic rok w formacie RRRR" }
+
   scope :valid, where("validated_at IS NOT NULL")
 
   def valid!
@@ -45,6 +51,11 @@ class Bribe < ActiveRecord::Base
 
   def kind
     Kind.find( read_attribute(:kind) )
+  end
+
+  def bribe_date
+    self.month = sprintf "%02d", self.month
+    %(#{year} - #{month})
   end
 
 end

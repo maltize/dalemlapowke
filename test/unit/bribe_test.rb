@@ -72,4 +72,8 @@ class BribeTest < ActiveSupport::TestCase
     assert @bribe.kind.is_a?(Kind)
   end
 
+  test "bribe_date" do
+    assert_equal "2013 - 01", @bribe.bribe_date
+  end
+
 end
