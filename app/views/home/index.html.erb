@@ -1,6 +1,6 @@
 <div class="span6">
   <div class="well">
-    <h4>1500 historii korupcji to 5 000 000 zł łapówek</h4>
+    <h4><%= Bribe.valid.count %> historii korupcji to <%= number_with_delimiter( Bribe.valid.sum(:amount) ) %> zł łapówek</h4>
 
     <p class="lead">Spróbójmy razem coś zmienić. Może istnieć Państwo bez korupcji. Niech Twoja historia uświadamia i pomaga innym, aby nie zrobili błędu. Opowiedz anonimowo gdzie, jak i kiedy dałeś łapówkę.</p>
   </div>
