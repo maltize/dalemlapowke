@@ -20,16 +20,22 @@
     :description => "W sumie #{rand(9999)} nie mam nic do dodania. W sumie #{rand(9999)} nie mam nic do dodania. W sumie #{rand(9999)} nie mam nic do dodania. W sumie #{rand(9999)} nie mam nic do dodania. W sumie #{rand(9999)} nie mam nic do dodania."
   )
 
-  bribe.user = "127.0.0.1"
+  bribe.user = "127.#{rand(255)}.#{rand(255)}.#{rand(255)}"
   bribe.save
+
+  next if rand(10) == 0
   bribe.valid!
 
-  comment = bribe.comments.build
-  comment.comment = "Taki właśnie #{rand(99999999)} ciekawy komentarz. Taki właśnie #{rand(99999999)} ciekawy komentarz. Taki właśnie #{rand(99999999)} ciekawy komentarz."
-  comment.save
+  rand(3).times do |j|
+    comment = bribe.comments.build
+    comment.comment = "Taki właśnie #{rand(99999999)} ciekawy komentarz. Taki właśnie #{rand(99999999)} ciekawy komentarz. Taki właśnie #{rand(99999999)} ciekawy komentarz."
+    comment.save
 
-  comment.user = "127.0.0.1"
-  comment.save
-  comment.valid!
+    comment.user = "127.#{rand(255)}.#{rand(255)}.#{rand(255)}"
+    comment.save
+
+    next if rand(10) == 0
+    comment.valid!
+  end
 
 end

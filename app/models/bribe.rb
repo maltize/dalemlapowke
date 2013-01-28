@@ -29,6 +29,7 @@ class Bribe < ActiveRecord::Base
   validates :year, :format => { :with => /\d{4}/ }
 
   scope :valid, where("validated_at IS NOT NULL")
+  scope :not_valid, where("validated_at IS NULL")
 
   def valid!
     update_attribute(:validated_at, Time.now)
@@ -54,6 +55,10 @@ class Bribe < ActiveRecord::Base
   def bribe_date
     self.month = sprintf "%02d", self.month
     %(#{year} - #{month})
+  end
+
+  def to_param
+    "#{id}-#{subject.parameterize}"
   end
 
 end

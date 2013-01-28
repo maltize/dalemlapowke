@@ -1,5 +1,5 @@
 <div class="span12">
-  <%= render :partial => 'bribes/bribe', :object => @bribe %>
+  <%= render :partial => 'bribes/bribe', :object => @bribe, :locals => { :expanded => true } %>
 
   <h1>Dodaj komentarz</h1>
 
@@ -10,6 +10,6 @@
   <% if @comments.any? %>
     <h4>Komentarze</h4>
 
-    <%= render :partial => 'comments/comment', :collection => @comments %>
+    <%= render :partial => 'comments/comment', :collection => @comments, :locals => { :expanded => true } %>
   <% end %>
 </div>

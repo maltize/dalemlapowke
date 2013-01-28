@@ -1,10 +1,14 @@
+<% expanded ||= false %>
+
 <h3><%= link_to bribe.subject, bribe %></h3>
 
 <p><strong>Województwo</strong> <%= bribe.area.title %></p>
 <p><strong>Usługa</strong> <%= bribe.service.title %></p>
+<p class="pull-right"><strong>Kwota</strong> <%= number_with_delimiter(bribe.amount) %> zł</p>
 <p><strong>Data</strong> <%= bribe.bribe_date %></p>
-<p><strong>Kwota</strong> <%= bribe.amount %></p>
 
-<p class="lead"><%= bribe.description %></p>
+<p class="lead">
+  <%= format_description(bribe.description, bribe, expanded) %>
+</p>
 
 <hr>

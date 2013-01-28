@@ -1,7 +1,10 @@
+# encoding: UTF-8
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :authenticate
+
+  helper_method :page_title
 
 private
 
@@ -11,6 +14,10 @@ private
         username == "admin" && password == "dalemlapowke.123"
       end
     end
+  end
+
+  def page_title
+    "Dałem Łapówkę - dalemlapowke.pl"
   end
 
 end

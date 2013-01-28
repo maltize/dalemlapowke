@@ -1,13 +1,19 @@
 Dalemlapowke::Application.routes.draw do
 
-  resources :bribes, :only => [:index, :new, :show, :create]
-  resources :comments, :only => [:create]
+  # resources :bribes, :only => [:index, :new, :show, :create]
 
-  match 'search' => 'search#find'
+  match 'historie' => 'bribes#index', :as => 'bribes', :via => :get
+  match 'historie/nowa' => 'bribes#new', :as => 'new_bribe', :via => :get
+  match 'historie' => 'bribes#create', :as => 'bribes', :via => :post
+  match 'historie/:id' => 'bribes#show', :as => 'bribe', :via => :get
 
-  match 'about' => 'static#about'
-  match 'terms' => 'static#terms'
-  match 'contact' => 'static#contact'
+  match 'komentarze' => 'comments#create', :as => 'comments', :via => :post
+
+  match 'szukaj' => 'search#find', :as => 'search', :via => :get
+
+  match 'o-serwisie' => 'static#about', :as => 'about', :via => :get
+  match 'warunki-uzytkowania' => 'static#terms', :as => 'terms', :via => :get
+  match 'kontakt' => 'static#contact', :as => 'contact', :via => :get
 
   root :to => 'home#index'
 

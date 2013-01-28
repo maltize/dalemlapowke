@@ -42,4 +42,10 @@ private
     @kind = Kind.find params[:kind]
   end
 
+  def page_title
+    @bribe && !@bribe.new_record? ?
+      "#{@bribe.subject} - dalemlapowke.pl" :
+      "Dałem Łapówkę - dalemlapowke.pl"
+  end
+
 end

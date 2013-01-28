@@ -1,0 +1,20 @@
+<script type="text/javascript">
+  google.load("visualization", "1", {packages:["corechart"]});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Urząd / Usługa', 'Liczba historii'],
+      <%= Chart.data_by(what).html_safe %>
+    ]);
+
+    var options = {
+      legend: { position: 'none' },
+      chartArea: { width: 300, height: 300 },
+      width: 460,
+      height: 320
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('<%= name %>'));
+    chart.draw(data, options);
+  }
+</script>

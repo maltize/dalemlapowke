@@ -1,3 +1,7 @@
-<p><strong>Dodano</strong> <%= comment.created_at %></p>
-<p class="lead"><%= comment.comment %></p>
+<% expanded ||= false %>
+
+<p><strong><%= l(comment.created_at, :format => :long) %></strong></p>
+<p class="lead">
+  <%= format_description(comment.comment, comment.bribe, expanded) %>
+</p>
 <hr>
