@@ -8,7 +8,12 @@
 <p><strong>Data</strong> <%= bribe.bribe_date %></p>
 
 <p class="lead">
-  <%= format_description(bribe.description, bribe, expanded) %>
+  <%= format_description(bribe.description, expanded) %>
+  <% if expanded %>
+    <%= render :partial => 'bribes/share' %>
+  <% else %>
+    <span class="pull-right"><%= link_to('(czytaj)', bribe_path(bribe))%><span>
+  <% end %>
 </p>
 
 <hr>

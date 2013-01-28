@@ -1,0 +1,41 @@
+<div class="share-links">
+  <!-- Twitter -->
+  <div class="share-twitter">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-lang="pl" data-hashtags="dalemlapowke.pl">Tweetnij</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  </div>
+
+  <!-- Facebook -->
+  <div class="share-facebook">
+    <iframe src="//www.facebook.com/plugins/like.php?href=<%= CGI.escape(current_uri) %>&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=343333455683531" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:120px; height:20px;" allowTransparency="true"></iframe>
+  </div>
+
+  <!-- Google+ -->
+  <div class="share-google">
+    <!-- Place this tag where you want the +1 button to render. -->
+    <div class="g-plusone" data-size="medium" data-annotation="inline" data-width="200"></div>
+
+    <!-- Place this tag after the last +1 button tag. -->
+    <script type="text/javascript">
+      window.___gcfg = {lang: 'pl'};
+
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+    </script>
+  </div>
+
+  <!-- Nk.pl -->
+  <div class="share-nk">
+    <script type="text/javascript">
+      var nk_wg = ({
+        content: "<%= "Świetna historia na dalemlapowke.pl #{current_uri}" %>",
+        host: "http://nk.pl/",
+        image: "http://0.s-nk.pl/img/nk_widgets/nk_btn/nk_btn_331"
+      });
+    </script>
+    <script type="text/javascript" src="http://0.s-nk.pl/script/sledzik/widgets/sledzik_widget_shout"></script>
+  </div>
+</div>

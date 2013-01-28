@@ -18,4 +18,8 @@ class StaticRecord
 
   def self.list; {}; end
 
+  def self.options
+    all.map{|record| [record.title, record.id] }
+  end
+
 end

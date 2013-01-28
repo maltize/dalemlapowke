@@ -1,13 +1,15 @@
 # encoding: UTF-8
 class BribesController < ApplicationController
 
-  before_filter :load_kind
+  before_filter :load_filters
 
   PER_PAGE = 10
 
   def index
     @bribes = Bribe.valid
     @bribes = @bribes.where(:kind => @kind.id) if @kind
+    @bribes = @bribes.where(:service => @service.id) if @service
+    @bribes = @bribes.where(:area => @area.id) if @area
     @bribes = @bribes.paginate(
       :page     => params[:page],
       :per_page => PER_PAGE
@@ -38,8 +40,10 @@ class BribesController < ApplicationController
 
 private
 
-  def load_kind
+  def load_filters
     @kind = Kind.find params[:kind]
+    @service = Service.find params[:service]
+    @area = Area.find params[:area]
   end
 
   def page_title

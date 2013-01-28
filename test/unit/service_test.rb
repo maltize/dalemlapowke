@@ -22,4 +22,13 @@ class ServiceTest < Test::Unit::TestCase
     assert srvcs[0].is_a?(Service)
   end
 
+  def test_options
+    options = Service.options
+
+    assert options.is_a?(Array)
+    assert options[0].is_a?(Array)
+    assert options[0][0].is_a?(String)
+    assert options[0][1].is_a?(Fixnum)
+  end
+
 end

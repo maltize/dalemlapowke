@@ -1,3 +1,47 @@
 // Place all the styles related to the Bribe controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.notice {
+  color: #08c;
+}
+
+.alert {
+  
+}
+
+.errorExplanation h2 {
+  font-size: 17.5px
+}
+
+.errorExplanation p {
+  display: none;
+}
+
+.bribe-year-month-field div {
+  display: inline;
+}
+
+.share-links {
+  .share-twitter, .share-facebook, .share-google, .share-nk {
+    display: inline;
+  }
+
+  .share-twitter iframe {
+    width: 110px !important;
+  }
+
+  .share-facebook iframe {
+    position: relative;
+    top: 1px;
+  }
+
+  .share-google div {
+    width: 140px !important;
+  }
+
+  .share-nk {
+    position: relative;
+    top: -6px;
+  }
+}

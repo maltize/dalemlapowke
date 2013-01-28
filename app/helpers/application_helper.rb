@@ -1,17 +1,16 @@
 module ApplicationHelper
 
-  def format_description(text, bribe, expanded)
-    if expanded
-      text
-    else
-      link = link_to('... (czytaj)', bribe_path(bribe))
-      truncate(text, :length => 110, :separator => ' ', :omission => link).html_safe
-    end
+  def format_description(text, expanded)
+    expanded ? text : truncate(text, :length => 80, :separator => ' ').html_safe
   end
 
   def render_chart_js(name, what)
     render :partial => 'chart/pie',
            :locals => { :name => name, :what => what }
+  end
+
+  def current_uri
+    "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
   end
 
 end

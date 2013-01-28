@@ -6,16 +6,18 @@
     <%= error_messages_for :bribe %>
 
     <%= f.label :kind, "Rodzaj" %>
-    <%= f.select :kind, Kind.all.map{|k| [k.title, k.id] }, :selected => @bribe.kind.try(:id) || params[:kind], :class => "input-block-level" %>
+    <%= f.select :kind, Kind.options, :selected => @bribe.kind.try(:id) || params[:kind], :class => "input-block-level" %>
 
     <%= f.label :area, "Województwo" %>
-    <%= f.select :area, Area.all.map{|a| [a.title, a.id] }, :class => "input-block-level" %>
+    <%= f.select :area, Area.options, :class => "input-block-level" %>
 
     <%= f.label :service, "Urząd / Usługa" %>
-    <%= f.select :service, Service.all.map{|s| [s.title, s.id] }, :class => "input-block-level" %>
+    <%= f.select :service, Service.options, :class => "input-block-level" %>
 
-    <%= f.label :year, "Kiedy" %>
-    <%= f.text_field :year, :placeholder => "RRRR", :size => "4" %> - <%= f.text_field :month, :placeholder => "MM", :width => "2" %>
+    <div class="bribe-year-month-field">
+      <%= f.label :year, "Kiedy" %>
+      <%= f.text_field :year, :placeholder => "RRRR", :size => "4" %> - <%= f.text_field :month, :placeholder => "MM", :width => "2" %>
+    </div>
 
     <%= f.label :amount, "Kwota" %>
     <%= f.text_field :amount, :class => "input-block-level" %>

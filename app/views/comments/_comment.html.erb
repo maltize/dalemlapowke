@@ -2,6 +2,9 @@
 
 <p><strong><%= l(comment.created_at, :format => :long) %></strong></p>
 <p class="lead">
-  <%= format_description(comment.comment, comment.bribe, expanded) %>
+  <%= format_description(comment.comment, expanded) %>
+  <% unless expanded %>
+    <span class="pull-right"><%= link_to('(czytaj)', bribe_path(comment.bribe))%><span>
+  <% end %>
 </p>
 <hr>

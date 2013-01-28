@@ -1,5 +1,5 @@
 $(document).ready(function(){
-   $('#kind_filter #kind').change(function(){
+   $('#kind_filter select').change(function(){
        $(this).closest("form").submit();
     });
 });
