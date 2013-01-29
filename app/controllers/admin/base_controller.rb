@@ -7,9 +7,11 @@ class Admin::BaseController < ApplicationController
 private
 
   def authenticate
+    @@config ||= YAML::load_file("#{Rails.root}/config/credentials.yml")
+
     if Rails.env.production?
       authenticate_or_request_with_http_basic do |username, password|
-        username == "admin" && password == "dalemlapowke.123"
+        username == @@config['username'] && password == @@config['password']
       end
     end
   end
