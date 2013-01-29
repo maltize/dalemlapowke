@@ -1,0 +1,21 @@
+<table class="table">
+  <caption>Komentarze</caption>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>DATA</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.id %></td>
+        <td><%= comment.to_json %></td>
+        <td><%= link_to 'Zatwierdzam', validate_admin_comment_path(comment), :method => :put %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @comments %>

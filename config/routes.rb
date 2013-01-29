@@ -1,5 +1,21 @@
 Dalemlapowke::Application.routes.draw do
 
+  namespace :admin do
+    match '/' => 'base#index'
+
+    resources :bribes, :only => [:index] do
+      member do
+        put 'validate'
+      end
+    end
+
+    resources :comments, :only => [:index] do
+      member do
+        put 'validate'
+      end
+    end
+  end
+
   # resources :bribes, :only => [:index, :new, :show, :create]
 
   match 'historie' => 'bribes#index', :as => 'bribes', :via => :get

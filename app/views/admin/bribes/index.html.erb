@@ -1,0 +1,21 @@
+<table class="table">
+  <caption>Historie</caption>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>DATA</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bribes.each do |bribe| %>
+      <tr>
+        <td><%= bribe.id %></td>
+        <td><%= bribe.to_json %></td>
+        <td><%= link_to 'Zatwierdzam', validate_admin_bribe_path(bribe), :method => :put %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @bribes %>
