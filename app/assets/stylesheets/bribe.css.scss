@@ -2,12 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.errorExplanation h2 {
-  font-size: 17.5px
-}
-
-.errorExplanation p {
-  display: none;
+.field_with_errors input {
+  border-color: #b94a48;
 }
 
 .bribe-year-month-field div {

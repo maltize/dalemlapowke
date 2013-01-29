@@ -13,4 +13,8 @@ module ApplicationHelper
     "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
   end
 
+  def errors_for(record)
+    render :partial => 'shared/errors', :locals => { :record => record }
+  end
+
 end
