@@ -3,7 +3,7 @@
   <h1>Dodaj historię</h1>
 
   <%= form_for(@bribe) do |f| %>
-    <%= error_messages_for @bribe %>
+    <%= f.error_messages %>
 
     <%= f.label :kind, "Rodzaj" %>
     <%= f.select :kind, Kind.options, :selected => @bribe.kind.try(:id) || params[:kind], :class => "input-block-level" %>

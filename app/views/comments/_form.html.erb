@@ -1,5 +1,5 @@
 <%= form_for(comment) do |f| %>
-  <%= error_messages_for @comment %>
+  <%= f.error_messages %>
 
   <%= hidden_field :comment, :bribe_id %>
 
