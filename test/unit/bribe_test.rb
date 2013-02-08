@@ -81,4 +81,11 @@ class BribeTest < ActiveSupport::TestCase
     assert_equal "2013 - 01", @bribe.bribe_date
   end
 
+  test "bribe_date 2" do
+    @bribe.year = "2012"
+    @bribe.month = "09"
+
+    assert_equal "2012 - 09", @bribe.bribe_date
+  end
+
 end

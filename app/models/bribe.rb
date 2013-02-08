@@ -53,7 +53,7 @@ class Bribe < ActiveRecord::Base
   end
 
   def bribe_date
-    self.month = sprintf "%02d", self.month
+    self.month = sprintf "%02d", self.month.to_i
     %(#{year} - #{month})
   end
 
