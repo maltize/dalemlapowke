@@ -19,3 +19,4 @@ config/credentials.yml
 .rvmrc
 tags
 .tags
+.ruby-version
