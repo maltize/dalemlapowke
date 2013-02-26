@@ -88,4 +88,14 @@ class BribeTest < ActiveSupport::TestCase
     assert_equal "2012 - 09", @bribe.bribe_date
   end
 
+  test "test validated" do
+    assert bribes(:two).validated?
+  end
+
+  test "unvalid" do
+    bribe = bribes(:two)
+    bribe.unvalid!
+    deny bribe.validated?
+  end
+
 end

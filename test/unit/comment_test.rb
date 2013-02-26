@@ -55,4 +55,14 @@ class CommentTest < ActiveSupport::TestCase
     assert_equal bribes(:one), @comment.bribe
   end
 
+  test "validated" do
+    assert comments(:two).validated?
+  end
+
+  test "unvalid" do
+    comment = comments(:two)
+    comment.unvalid!
+
+    deny comment.validated?
+  end
 end

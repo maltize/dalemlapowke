@@ -38,6 +38,7 @@ class BribesController < ApplicationController
     end
   end
 
+
 private
 
   def load_filters

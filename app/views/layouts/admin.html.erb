@@ -9,9 +9,20 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="span12">
-        <strong><%= link_to "Historie", admin_bribes_path %></strong>
-        <strong><%= link_to "Komentarze", admin_comments_path %></strong>
+      <div class="span6">
+        <center><strong><%= link_to "Historie Wszystkie", admin_bribes_path %></strong></center>
+        <div class="span6">
+          <strong><%= link_to "Historie Publikowane", valid_admin_bribes_path %></strong> |
+          <strong><%= link_to "Historie Niepublikowane", not_valid_admin_bribes_path %></strong> |
+        </div>
+      </div>
+
+      <div class="span6">
+        <center><strong><%= link_to "Komentarze", admin_comments_path %></strong></center>
+        <div class="span6">
+          <strong><%= link_to "Komentarze Publikowane", valid_admin_comments_path %></strong> |
+          <strong><%= link_to "Komentarze Niepublikowane", not_valid_admin_comments_path %></strong>
+        </div>
       </div>
     </div>
 

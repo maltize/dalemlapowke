@@ -9,6 +9,21 @@ class Admin::CommentsController < Admin::BaseController
     )
   end
 
+  def valid
+    @comments = Comment.valid.paginate(
+      :page     => params[:page],
+      :per_page => PER_PAGE
+    )
+    render :index
+  end
+
+  def not_valid
+    @comments = Comment.not_valid.order('id DESC').paginate(
+      :page     => params[:page],
+      :per_page => PER_PAGE
+    )
+    render :index
+  end
 
   def update
     @comment = Comment.find(params[:id])
@@ -28,7 +43,13 @@ class Admin::CommentsController < Admin::BaseController
     @comment = Comment.find(params[:id])
     @comment.valid!
 
-    redirect_to admin_comments_path
+    redirect_to :back
   end
 
+  def unvalidate
+    @comment = Comment.find(params[:id])
+    @comment.unvalid!
+
+    redirect_to :back
+  end
 end

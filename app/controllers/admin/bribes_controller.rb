@@ -2,8 +2,25 @@ class Admin::BribesController < Admin::BaseController
 
   PER_PAGE = 10
 
+  def valid
+    @bribes = Bribe.valid.order('id DESC').paginate(
+      :page     => params[:page],
+      :per_page => PER_PAGE
+    )
+
+    render :index
+  end
+
+  def not_valid
+    @bribes = Bribe.not_valid.order('id DESC').paginate(
+      :page     => params[:page],
+      :per_page => PER_PAGE
+    )
+    render :index
+  end
+
   def index
-    @bribes = Bribe.order('id DESC').paginate(
+    @bribes =  Bribe.order('id DESC').paginate(
       :page     => params[:page],
       :per_page => PER_PAGE
     )
@@ -27,7 +44,15 @@ class Admin::BribesController < Admin::BaseController
     @bribe = Bribe.find(params[:id])
     @bribe.valid!
 
-    redirect_to admin_bribes_path
+    redirect_to :back
   end
+
+  def unvalidate
+    @bribe = Bribe.find(params[:id])
+    @bribe.unvalid!
+
+    redirect_to :back
+  end
+
 
 end

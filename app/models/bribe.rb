@@ -35,6 +35,14 @@ class Bribe < ActiveRecord::Base
     update_attribute(:validated_at, Time.now)
   end
 
+  def validated?
+    validated_at.present?
+  end
+
+  def unvalid!
+    update_attribute(:validated_at, nil)
+  end
+
   def user=(ip)
     write_attribute(:user, Digest::MD5.hexdigest(ip))
       rescue nil

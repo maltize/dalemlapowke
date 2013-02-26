@@ -24,4 +24,4 @@ two:
   bribe_id: 1
   comment: MyText
   user: MyString
-  validated_at: false
+  validated_at: 2013-01-10
