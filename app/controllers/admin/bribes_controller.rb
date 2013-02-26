@@ -40,19 +40,11 @@ class Admin::BribesController < Admin::BaseController
     end
   end
 
-  def validate
+  def perform
     @bribe = Bribe.find(params[:id])
-    @bribe.valid!
+    params[:v].present? ? @bribe.valid! : @bribe.unvalid!
 
     redirect_to :back
   end
-
-  def unvalidate
-    @bribe = Bribe.find(params[:id])
-    @bribe.unvalid!
-
-    redirect_to :back
-  end
-
 
 end

@@ -21,9 +21,9 @@
           <%= best_in_place bribe, :month, :path => admin_bribe_path(bribe.id) %> |
       </td>
       <% if bribe.validated? %>
-        <td><%= link_to 'Anuluj Publikacje', unvalidate_admin_bribe_path(bribe), :method => :put %></td>
+        <td><%= link_to 'Anuluj Publikacje', perform_admin_bribe_path(bribe), :method => :put %></td>
       <% else %>
-        <td><%= link_to 'Publikuj', validate_admin_bribe_path(bribe), :method => :put %></td>
+        <td><%= link_to 'Publikuj', perform_admin_bribe_path(bribe, :v => true), :method => :put %></td>
       <% end %>
       </tr>
     <% end %>

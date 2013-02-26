@@ -39,17 +39,11 @@ class Admin::CommentsController < Admin::BaseController
     end
   end
 
-  def validate
+  def perform
     @comment = Comment.find(params[:id])
-    @comment.valid!
+    params[:v].present? ? @comment.valid! : @comment.unvalid!
 
     redirect_to :back
   end
 
-  def unvalidate
-    @comment = Comment.find(params[:id])
-    @comment.unvalid!
-
-    redirect_to :back
-  end
 end

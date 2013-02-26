@@ -3,11 +3,10 @@ Dalemlapowke::Application.routes.draw do
   namespace :admin do
     match '/' => 'base#index'
 
-    resources :bribes, :only => [:index, :valid] do
+    resources :bribes, :only => [:index] do
       member do
         put 'update'
-        put 'validate'
-        put 'unvalidate'
+        put 'perform'
       end
 
       collection do
@@ -20,8 +19,7 @@ Dalemlapowke::Application.routes.draw do
     resources :comments, :only => [:index] do
       member do
         put 'update'
-        put 'validate'
-        put 'unvalidate'
+        put 'perform'
       end
 
       collection do

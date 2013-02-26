@@ -12,9 +12,9 @@
         <%= best_in_place comment, :user, :path => admin_comment_path(comment) %>|
         <%= best_in_place comment, :comment, :type => :textarea, :path => admin_comment_path(comment) %>|
         <% if comment.validated? %>
-          <td><%= link_to 'Anuluj Publikacje', unvalidate_admin_comment_path(comment), :method => :put %></td>
+          <td><%= link_to 'Anuluj Publikacje', perform_admin_comment_path(comment), :method => :put %></td>
         <% else %>
-          <td><%= link_to 'Publikuj', validate_admin_comment_path(comment), :method => :put %></td>
+          <td><%= link_to 'Publikuj', perform_admin_comment_path(comment, :v => true), :method => :put %></td>
         <% end %>
       </tr>
     <% end %>

@@ -19,6 +19,7 @@ class Comment < ActiveRecord::Base
   validates :bribe, :comment, :presence => true
 
   scope :valid, where("validated_at IS NOT NULL")
+  scope :not_valid, where("validated_at IS NULL")
 
   def valid!
     update_attribute(:validated_at, Time.now)
