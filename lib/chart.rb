@@ -3,7 +3,7 @@ class Chart
   # "['what',count],['what2',count]"
   def self.data_by(what)
     # { what => count, what2 => count }
-    h = Bribe.valid.count(:group => what, :order => 'COUNT(1) DESC')
+    h = Bribe.valids.count(:group => what, :order => 'COUNT(1) DESC')
     h.map{|k,v| "['#{what_title(what, k)}',#{v}]" }.join(',')
   end
 

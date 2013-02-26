@@ -39,7 +39,19 @@ class CommentTest < ActiveSupport::TestCase
   end
 
   test "valid scope" do
-    assert_equal [ bribes(:two) ], Bribe.valid
+    assert_equal [ comments(:two) ], Comment.valid
+  end
+
+  test "not_valid scope" do
+    assert_equal [ comments(:one) ], Comment.not_valid
+  end
+
+  test "all scope" do
+    assert_equal [ comments(:two), comments(:one) ], Comment.all
+  end
+
+  test "paginates" do
+    assert_equal 2, Comment.paginates.size
   end
 
   test "user= should set md5 value" do

@@ -52,6 +52,14 @@ class BribeTest < ActiveSupport::TestCase
     assert_equal [ bribes(:one) ], Bribe.not_valid
   end
 
+  test "all scope" do
+    assert_equal [ bribes(:two), bribes(:one) ], Bribe.all
+  end
+
+  test "paginates" do
+    assert_equal 2, Bribe.paginates.size
+  end
+
   test "user= should set md5 value" do
     @bribe.user = "192.168.1.1"
 

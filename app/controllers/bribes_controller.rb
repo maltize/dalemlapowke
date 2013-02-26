@@ -3,17 +3,12 @@ class BribesController < ApplicationController
 
   before_filter :load_filters
 
-  PER_PAGE = 10
-
   def index
-    @bribes = Bribe.valid
+    @bribes = Bribe.valids
     @bribes = @bribes.where(:kind => @kind.id) if @kind
     @bribes = @bribes.where(:service => @service.id) if @service
     @bribes = @bribes.where(:area => @area.id) if @area
-    @bribes = @bribes.paginate(
-      :page     => params[:page],
-      :per_page => PER_PAGE
-    )
+    @bribes = @bribes.paginates(params[:page])
   end
 
   def show

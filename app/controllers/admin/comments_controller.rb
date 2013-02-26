@@ -1,27 +1,16 @@
 class Admin::CommentsController < Admin::BaseController
 
-  PER_PAGE = 10
-
   def index
-    @comments = Comment.order('id DESC').paginate(
-      :page     => params[:page],
-      :per_page => PER_PAGE
-    )
+    @comments = Comment.all(params[:page])
   end
 
   def valid
-    @comments = Comment.valid.paginate(
-      :page     => params[:page],
-      :per_page => PER_PAGE
-    )
+    @comments = Comment.valid(params[:page])
     render :index
   end
 
   def not_valid
-    @comments = Comment.not_valid.order('id DESC').paginate(
-      :page     => params[:page],
-      :per_page => PER_PAGE
-    )
+    @comments = Comment.not_valid(params[:page])
     render :index
   end
 

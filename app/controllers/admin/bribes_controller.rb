@@ -1,29 +1,17 @@
 class Admin::BribesController < Admin::BaseController
 
-  PER_PAGE = 10
-
   def valid
-    @bribes = Bribe.valid.order('id DESC').paginate(
-      :page     => params[:page],
-      :per_page => PER_PAGE
-    )
-
+    @bribes = Bribe.valid(params[:page])
     render :index
   end
 
   def not_valid
-    @bribes = Bribe.not_valid.order('id DESC').paginate(
-      :page     => params[:page],
-      :per_page => PER_PAGE
-    )
+    @bribes = Bribe.not_valid(params[:page])
     render :index
   end
 
   def index
-    @bribes =  Bribe.order('id DESC').paginate(
-      :page     => params[:page],
-      :per_page => PER_PAGE
-    )
+    @bribes =  Bribe.all(params[:page])
   end
 
   def update
