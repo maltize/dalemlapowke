@@ -40,6 +40,18 @@ class Bribe < ActiveRecord::Base
       rescue nil
   end
 
+  def area_title
+    area.title
+  end
+
+  def kind_title
+    kind.title
+  end
+
+  def service_title
+    service.title
+  end
+
   def service
     Service.find( read_attribute(:service) )
   end

@@ -2,16 +2,24 @@
   <caption>Historie</caption>
   <thead>
     <tr>
-      <th>ID</th>
-      <th>DATA</th>
-      <th>&nbsp;</th>
+      <th>ID | Amount | Subject |  Description | Area | Kind | Service | Year | Month </th>
     </tr>
   </thead>
   <tbody>
     <% @bribes.each do |bribe| %>
       <tr>
-        <td><%= bribe.id %></td>
-        <td><%= bribe.to_json %></td>
+        <td>
+          <%= bribe.id %>|
+          <%= best_in_place bribe, :amount, :display_with => :number_to_currency,
+                :path => admin_bribe_path(bribe.id)  %> |
+          <%= best_in_place bribe, :subject, :path => admin_bribe_path(bribe.id) %> |
+          <%= best_in_place bribe, :description, :type => :textarea, :path => admin_bribe_path(bribe.id) %> |
+          <%= best_in_place bribe, :area, :display_as => :area_title, :path => admin_bribe_path(bribe.id) %> |
+          <%= best_in_place bribe, :kind, :display_as => :kind_title, :path => admin_bribe_path(bribe.id) %> |
+          <%= best_in_place bribe, :service, :type => :select, :display_as => :service_title , :path => admin_bribe_path(bribe.id) %> |
+          <%= best_in_place bribe, :year, :path => admin_bribe_path(bribe.id) %> |
+          <%= best_in_place bribe, :month, :path => admin_bribe_path(bribe.id) %> |
+      </td>
         <td><%= link_to 'Zatwierdzam', validate_admin_bribe_path(bribe), :method => :put %></td>
       </tr>
     <% end %>
@@ -19,3 +27,9 @@
 </table>
 
 <%= will_paginate @bribes %>
+<%= javascript_tag do  %>
+  $(document).ready(function() {
+    /* Activating Best In Place */
+    jQuery(".best_in_place").best_in_place();
+  });
+<% end %>

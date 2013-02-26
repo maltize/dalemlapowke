@@ -1,6 +1,6 @@
 <% expanded ||= false %>
 
-<h3><%= link_to bribe.subject, bribe %></h3>
+<h3><%= link_to bribe.subject, bribe_path(bribe) %></h3>
 
 <p><strong>Województwo</strong> <%= bribe.area.title %></p>
 <p><strong>Usługa</strong> <%= bribe.service.title %></p>

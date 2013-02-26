@@ -6,7 +6,7 @@ gem 'rails', '3.2.11'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-
+gem 'best_in_place'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -36,6 +36,7 @@ group :development do
   gem 'capistrano'
 
   gem 'annotate'
+  gem 'ruby-prof'
 end
 
 group :test do

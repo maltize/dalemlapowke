@@ -5,12 +5,14 @@ Dalemlapowke::Application.routes.draw do
 
     resources :bribes, :only => [:index] do
       member do
+        put 'update'
         put 'validate'
       end
     end
 
     resources :comments, :only => [:index] do
       member do
+        put 'update'
         put 'validate'
       end
     end
