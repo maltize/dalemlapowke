@@ -16,7 +16,8 @@
 
     <div class="bribe-year-month-field">
       <%= f.label :year, "Kiedy" %>
-      <%= f.text_field :year, :placeholder => "RRRR", :size => "4" %> - <%= f.text_field :month, :placeholder => "MM", :width => "2" %>
+
+      <%= f.select :year, (2013.downto(1960)).to_a %> <b>-</b> <%= f.select :month, (1..12).to_a %>
     </div>
 
     <%= f.label :amount, "Kwota" %>
