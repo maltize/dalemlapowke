@@ -19,6 +19,12 @@ class BribesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:comment)
   end
 
+ test "redirect to index if invalid id" do
+    get :show, :id => 'unknown'
+    assert_response :redirect
+    assert_redirected_to bribes_path
+ end
+
   test "should get new" do
     get :new
     assert_response :success
