@@ -12,7 +12,9 @@ class BribesController < ApplicationController
   end
 
   def show
-    @bribe = Bribe.valid.find(params[:id])
+    @bribe = Bribe.valid.find_by_id(params[:id])
+    redirect_to bribes_path and return if @bribe.nil?
+
     @comments = @bribe.comments.valid
     @comment = @bribe.comments.build
   end
