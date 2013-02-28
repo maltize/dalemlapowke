@@ -2,9 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.header-section .span3 img {
-  width: 220px;
-  height: 120px;
+a {
+  color: #005c7d;
+}
+
+.header {
+  background-color: #005c7d;
+}
+
+.header h2, .header h3 {
+  color: #fff;
+  font-size: 31.5px;
+  line-height: 31.5px;
+}
+
+.header h3 {
+  font-weight: normal;
+}
+
+.header-left {
+  float: left;
+}
+
+.header-right {
+  position: relative;
+  left: 40px;
+  top: 130px;
+}
+
+.menu-section {
+  margin-top: 50px;
 }
 
 .menu-section .btn-group {
